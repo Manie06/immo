@@ -1,10 +1,11 @@
 extends ../layout.pug
  
 block content
+    
     h1 Connexion
     if error
         .alert.alert-danger= error
- 
+    
     form(action='/connexion' method="post")
         .input-group.mb-3
             span.input-group-prepend
@@ -12,7 +13,7 @@ block content
                     i.fa.fa-envelope 
             input(type="email" class="form-control" placeholder="Email" name="email" value=form.email)     
  
- 
+    .row.justify-content-center
         .input-group.mb-3
             .input-group-prepend
                 .input-group-text.d-none.d-lg-block 
@@ -21,4 +22,4 @@ block content
        
         .row.justify-content-center
             .col-2
-                button.btn.btn-primary(type="submit") Se connecter
+                button.btn.btn-secondary(type="submit") Se connecter

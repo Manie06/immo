@@ -39,18 +39,18 @@ app.use(flash());
 //--------------------------------------------------------------------
 //      Simulation d'une connexion en mode dev
 //--------------------------------------------------------------------
-/*if(process.env.APP_ENV === 'dev') {
+if(process.env.APP_ENV === 'dev') {
     app.use((req, res, next) => {
         req.session.user = {
             email : 'j.doe@yopmail.com',
             civility : 1,
-            firstname: 'John',
-            lastname: 'Doe',
+            firstname: 'Mélanie',
+            lastname: 'De Boissière',
             phone: '0605040302',
         };
         next();
     });
-}*/
+}
 
 app.use((req,res,next) => {
     res.locals.session = req.session;
