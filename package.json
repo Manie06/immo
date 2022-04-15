@@ -17,6 +17,7 @@
     "express-flash-messages": "^0.1.1",
     "express-session": "^1.17.2",
     "mongoose": "^6.2.10",
+    "mongoose-slug-updater": "^3.3.0",
     "node-sass-middleware": "^1.0.1",
     "pug": "^3.0.2"
   }

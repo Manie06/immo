@@ -10,3 +10,56 @@ block content
         h1.h2 Liste des biens
         .btn-toolbar.mb-2.mb-md-0
             a.btn.btn-small.btn-primary(href="/admin/realty/add") Ajouter un bien
+ 
+    .row
+        .col-md-12
+            .panel.panel-container
+                table.table.table-hover
+                    thead 
+                        tr 
+                            th.bs-checkbox 
+                                input(name="btSelectAll" type="checkbox")
+                            th Vendeur 
+                            th Adresse
+                            th Description  
+                            th(style="width:1%;")  
+                            th(style="width:1%;")  
+                    tbody 
+                        each realty, key in realties 
+                            tr 
+                                td.bs-checkbox 
+                                    input(data-index=realty._id value=realty._id name="realty[]" type="checkbox")
+                                td  
+                                    .dropdown
+                                        a.dropdown-toggle(href="#" role="button" id='dropdown_'+key data-bs-toggle="dropdown" aria-expanded="false") #{realty.contact.firstname} #{realty.contact.lastname}
+                                        .dropdown-menu(aria-labelledby='dropdown_'+key)
+                                            h6.dropdown-header Contacter
+                                            a.dropdown-item(href="mailto:"+realty.contact.email) Envoyer un mail
+                                            if realty.contact.mobile != ''
+                                                a.dropdown-item(href="tel:"+realty.contact.mobile) Appeler au #{realty.contact.mobile}
+                                            if realty.contact.phone != ''
+                                                a.dropdown-item(href="tel:"+realty.contact.phone) Appeler au #{realty.contact.phone}
+                                td
+                                    | #{realty.address.address1}
+                                    br
+                                    | #{realty.address.zipcode} #{realty.address.city}
+                                td
+                                    if realty.type == 1 
+                                        span Maison #{realty.area}m² - #{realty.room} piece(s)
+                                    else if realty.type == 2
+                                        span Appartement  #{realty.area}m² - #{realty.room} piece(s)
+                                    else if realty.type == 3
+                                        span Terrain  #{realty.area}m²
+                                    else if realty.type == 4
+                                        span Parking
+                                    else if realty.type == 5
+                                        span Local / Bureau
+                                    else 
+                                        span Autre
+                                    
+                                td
+                                    a.btn.btn-primary(href='/admin/realty/edit/'+realty._id) 
+                                        i.fa.fa-pen
+                                td
+                                    a.btn.btn-danger(href='/admin/realty/delete/'+realty._id) 
+                                        i.fa.fa-trash
