@@ -29,6 +29,20 @@ module.exports = (app) => {
         let Dashboard = require('../src/controllers/Dashboard.js');
         (new Dashboard()).print(req, res);
     })
+    app.get('/admin/realty', (req, res) => {
+        let Realty = require('../src/controllers/Realty.js');
+        (new Realty()).print(req, res);
+    });
+ 
+    app.get('/admin/realty/add', (req, res) => {
+        let Realty = require('../src/controllers/Realty.js');
+        (new Realty()).printForm(req, res);
+    });
+    app.post('/admin/realty/add', (req, res) => {
+        let Realty = require('../src/controllers/Realty.js');
+        (new Realty()).processForm(req, res);
+    });
+
 
       
       

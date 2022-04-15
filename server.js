@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config()
 
 // Parse DATA //
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 //--------------------------------------------------------------------
 //      Mise en place du moteur de template
 //--------------------------------------------------------------------
