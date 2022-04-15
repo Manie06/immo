@@ -35,13 +35,13 @@ html(lang="fr")
                             
             block content
 
-        - var messages = getMessages()
-            if messages.notify
-                each msg in messages.notify
-                    .alert.alert-info= msg
-            if messages.error
-                each msg in messages.error
-                    .alert.alert-danger= msg 
+            - var messages = getMessages()
+                if messages.notify
+                    each msg in messages.notify
+                        .alert.alert-info= msg
+                if messages.error
+                    each msg in messages.error
+                        .alert.alert-danger= msg 
  
         block scripts 
         script(src=process.env.BROWSER_REFRESH_URL)
