@@ -20,5 +20,12 @@
     "mongoose-slug-updater": "^3.3.0",
     "node-sass-middleware": "^1.0.1",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": {
+    "run": ["test"]
   }
+
 }

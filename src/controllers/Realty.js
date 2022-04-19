@@ -34,8 +34,8 @@ module.exports = class Realty {
     // on est en ajout
     else {
         response.render('admin/realty/form', {form: { contact: {}, address : {}}});
+      }
     }
-}
 
 
     processForm(request, response) {

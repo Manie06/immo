@@ -1,4 +1,6 @@
 module.exports = (app) => {
+
+
     app.get('/', (req, res) => {
         let Home = require('../src/controllers/Home.js');
         (new Home()).print(req, res);
@@ -54,6 +56,7 @@ module.exports = (app) => {
         let Realty = require('../src/controllers/Realty.js');
         (new Realty()).processForm(req, res);
     });
+
 
 
 

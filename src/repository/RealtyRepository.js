@@ -1,8 +1,10 @@
 require('../../app/database.js');
 
 const mongoose = require('mongoose');
+
 const slug = require('mongoose-slug-updater');
 mongoose.plugin(slug);
+
 const RealtySchema = mongoose.Schema({
     seller : { type: String },
     address : { 
@@ -30,6 +32,7 @@ const RealtySchema = mongoose.Schema({
     type_product : { type: String },
     info_realty : { type: String },
     slug: { type: String, slug: ['address.zipcode','address.city'], unique:true }
+    
 
 }, { versionKey: false });
  
@@ -71,6 +74,14 @@ module.exports = class Realty {
             });
         });
     }
+    /*update(id) {
+        return new Promise((resolve, reject) => {
+            this.db.findById(id, function (err, realty) {
+                if (err || realty === null) reject();
+                resolve(realty);
+            });
+        });
+    }*/
 
 
 
