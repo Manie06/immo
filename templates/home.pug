@@ -1,4 +1,28 @@
 extends layout.pug
  
 block content
-    p Hello world
+            
+      .row 
+            each realty in realties 
+                .col-sm-4.mt-4
+                    .card(style='width: 18rem;')
+                        if realty.pictures && realty.pictures[0]
+                            img.card-img-top(src=realty.pictures[0], alt="no photo")
+                        else
+                            img.card-img-top(src="/images/12.png", alt='Card image cap')
+                        .card-body
+                            h5.card-title
+                                if realty.type == 1 
+                                    span Maison #{realty.area}m² - #{realty.room} piece(s)
+                                else if realty.type == 2
+                                    span Appartement  #{realty.area}m² - #{realty.room} piece(s)
+                                else if realty.type == 3
+                                    span Terrain  #{realty.area}m²
+                                else if realty.type == 4
+                                    span Parking
+                                else if realty.type == 5
+                                    span Local / Bureau
+                                else 
+                                    span Autre
+                            p.card-text #{realty.zipcode} #{realty.city}
+                            a.btn.btn-primary.center(href='/realty/'+realty.slug) Voir le détail

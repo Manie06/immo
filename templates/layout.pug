@@ -31,10 +31,6 @@ html(lang="fr")
                                 li.nav-item
                                     a.nav-link(href='/connexion') Connexion 
 
-                        
-                            
-            block content
-
             - var messages = getMessages()
                 if messages.notify
                     each msg in messages.notify
@@ -43,6 +39,8 @@ html(lang="fr")
                     each msg in messages.error
                         .alert.alert-danger= msg 
  
+            block content
+            
         block scripts 
         script(src=process.env.BROWSER_REFRESH_URL)
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous")

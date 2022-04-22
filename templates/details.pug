@@ -1,0 +1,48 @@
+extends layout.pug
+ 
+block content
+    .row  
+        .col-sm-3   
+        .col-sm-6.mt-4
+            .card
+                if realty.pictures && realty.pictures.length > 0
+                    #carouselExampleControls.carousel.slide(data-bs-ride="carousel")
+                        .carousel-inner
+                            for picture, key in realty.pictures
+                                if key === 0
+                                    .carousel-item.active
+                                        img.d-block.w-100(src=picture)
+                                else
+                                    .carousel-item
+                                        img.d-block.w-100(src=picture)
+                        a.carousel-control-prev(href="#carouselExampleControls", role="button", data-bs-slide="prev")
+                            span.carousel-control-prev-icon(aria-hidden="true")
+                            span.sr-only Previous
+                        a.carousel-control-next(href="#carouselExampleControls", role="button", data-bs-slide="next")
+                            span.carousel-control-next-icon(aria-hidden="true")
+                            span.sr-only Next
+                else
+                    img.card-img-top(src="/images/12.jpg", alt="no photo")
+                .card-body
+                    h5.card-title
+                        - var rooms = ''
+                        - var area = ''
+                        if realty.room > 0
+                            - var rooms = ' - '+ realty.room + ' pièce(s)'
+                        if realty.area > 0
+                            - var area =  realty.area + 'm²'  
+
+                        if realty.type == 1 
+                            span Maison #{area} #{rooms}
+                        else if realty.type == 2
+                            span Appartement  #{area} #{rooms}
+                        else if realty.type == 3
+                            span Terrain  #{area}
+                        else if realty.type == 4
+                            span Parking
+                        else if realty.type == 5
+                            span Local / Bureau
+                        else 
+                            span Autre
+
+                    p.card-text #{realty.address.zipcode} #{realty.address.city}

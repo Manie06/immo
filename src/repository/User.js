@@ -7,6 +7,7 @@ const UserSchema = mongoose.Schema({
     firstname: { type: String },
     lastname: { type: String},
     phone: { type: String },
+    roles : { type : Array},
     date: { type: Date, default: Date.now }
 }, { versionKey: false });
  

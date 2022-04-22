@@ -30,6 +30,7 @@ app.use(session({
     secret: process.env.APP_KEY, resave:false, saveUninitialized:false, 
     cookie: {maxAge: 3600000} 
 }));
+
 //--------------------------------------------------------------------
 //      Ajout du midlleware express flash messages
 //--------------------------------------------------------------------

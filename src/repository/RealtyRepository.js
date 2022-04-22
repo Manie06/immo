@@ -50,14 +50,8 @@ module.exports = class Realty {
         });
 
     }
-    find(search = {}) {
-        return new Promise((resolve, reject) => {
-            this.db.find(search, function (err, realty) {
-                if (err) reject(err);
-                resolve(realty);
-            });
-        });
-    }
+ 
+ 
     delete(filter = {}) {
         return new Promise((resolve, reject) => {
             this.db.deleteOne(filter, function (err) {
@@ -66,24 +60,33 @@ module.exports = class Realty {
             });
         });
     }
-    findById(id) {
+
+    find(search = {}) {
         return new Promise((resolve, reject) => {
-            this.db.findById(id, function (err, realty) {
-                if (err || realty === null) reject();
+            this.db.find(search, function (err, realty) {
+                if (err) reject(err);
                 resolve(realty);
             });
         });
     }
-    /*update(id) {
+
+
+    findById(id) {
         return new Promise((resolve, reject) => {
             this.db.findById(id, function (err, realty) {
-                if (err || realty === null) reject();
+                if (err || realty === null) reject(err);
                 resolve(realty);
             });
         });
-    }*/
+    }
 
-
-
+    update(id, entity) {
+        return new Promise((resolve, reject) => {
+            this.db.findOneAndUpdate({ _id:id }, entity, function (err,realty) {
+                if (err) reject(err);
+                resolve(realty);
+            });
+        });
+    }
 
 }

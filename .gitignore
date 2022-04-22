@@ -1,3 +1,5 @@
 .env
+.env.test
 .browser-refresh-ignore
 node_modules/
+public/images/realties/

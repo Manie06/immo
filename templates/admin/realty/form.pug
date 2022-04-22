@@ -15,7 +15,7 @@ block content
     .row
         if(error)
             .alert.alert-danger #{error}
-        form(action='/admin/realty/add' method="post")
+        form(role="form" method="post" enctype="multipart/form-data" )
             .row
                 .col-xs-12.col-lg-6 
                     fieldset
@@ -129,31 +129,7 @@ block content
                 .col-lg-12
                     button.btn.btn-primary.center-block(type="submit")= (route.indexOf('/admin/realty/edit') != -1  ? 'Modifier' : 'Enregistrer' ) 
 
+    
     block scripts 
-    script(src="/js/upload.js") 
+    script(src="/js/admin/upload.js")
 
-
-//- extends ../layout.pug
- 
-//- block content
-//-    h1 Enregistrer un bien
-//-         .btn-toolbar.mb-2.mb-md-0
-//-             a.btn.btn-small.btn-secondary(href="/admin/realty") Liste des biens
-        
-
-//-         form(action='/admin/realty/add' method="post")
-//-             .form.row 
-//-             .form-group.col-md-6
-//-                 label(for='nom') Nom du vendeur
-//-                 input.form-control#inputEmail4(type='nom', name="realty[nom]", value=form.adresse.nom ,placeholder='Nom du vendeur')
-//-             .form-group.col-md-6
-//-                 label(for='Adresse') Adresse
-//-                 input.form-control#inputPassword4(type='text', name="realty[adresse]", value=form.adresse.adresse, placeholder='Adresse')
-//-                 input.form-control#inputPassword4(type='text', placeholder='')
-//-             .form-group.col-md-6
-//-                 label(for='CodePostal') Code postal
-//-                 input.form-control#inputAddress(type='text', name="realty[codePostal]", value=form.adresse.codePostal, placeholder='Code postal')
-//-             .form-group.col-md-6
-//-                 label(for='ville') Ville 
-//-                 input.form-control#inputAddress2(type='text', name="realty[ville]" value=form.adress.ville ,placeholder='Ville')
-//-             button.btn.btn-primary(type='submit') Enregistrer
