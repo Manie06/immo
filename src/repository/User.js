@@ -49,4 +49,13 @@ module.exports = class User {
         })
     }
 
+    delete(filter = {}) {
+        return new Promise((resolve, reject) => {
+            this.db.deleteOne(filter, function (err) {
+                if (err) reject(err);
+                resolve();
+            });
+        });
+    }
+
 } 

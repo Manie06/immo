@@ -5,13 +5,13 @@ block content
       .row 
             each realty in realties 
                 .col-sm-4.mt-4
-                    .card(style='width: 18rem;')
+                    .card.text-center(style='width: 18rem;' )
                         if realty.pictures && realty.pictures[0]
                             img.card-img-top(src=realty.pictures[0], alt="no photo")
                         else
-                            img.card-img-top(src="/images/12.png", alt='Card image cap')
+                            img.card-img-top(src="/images/12.png", alt='Card image cap', width='5rem')
                         .card-body
-                            h5.card-title
+                            h5.card-title.text-center
                                 if realty.type == 1 
                                     span Maison #{realty.area}m² - #{realty.room} piece(s)
                                 else if realty.type == 2
@@ -24,5 +24,7 @@ block content
                                     span Local / Bureau
                                 else 
                                     span Autre
-                            p.card-text #{realty.zipcode} #{realty.city}
-                            a.btn.btn-primary.center(href='/realty/'+realty.slug) Voir le détail
+                                #{realty.info_realty}
+                            p.card-text #{realty.zipcode} #{realty.city} 
+                            p.card-text #{realty.price} €
+                            a.btn.btn-secondary(href='/realty/'+realty.slug) Voir le détail
